@@ -58,7 +58,7 @@ export default function App(props) {
             <Stack.Screen
               name="Hello"
               component={HelloScreen}
-              options={{ title: "Welcome" }}
+              options={{ headerShown: false }}
             />
             <Stack.Screen name="Root" component={BottomTabNavigator} />
           </Stack.Navigator>
