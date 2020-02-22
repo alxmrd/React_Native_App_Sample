@@ -12,7 +12,7 @@ import * as WebBrowser from "expo-web-browser";
 
 import { MonoText } from "../components/StyledText";
 
-export default function HomeScreen() {
+export default function ListScreen() {
   return (
     <View style={styles.container}>
       <ScrollView
@@ -38,9 +38,9 @@ export default function HomeScreen() {
           </Text>
 
           <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
+            style={[styles.codeHighlightContainer, styles.ListScreenFilename]}
           >
-            <MonoText>screens/HomeScreen.js</MonoText>
+            <MonoText>screens/ListScreen.js</MonoText>
           </View>
 
           <Text style={styles.getStartedText}>
@@ -75,7 +75,7 @@ export default function HomeScreen() {
   );
 }
 
-HomeScreen.navigationOptions = {
+ListScreen.navigationOptions = {
   header: null
 };
 
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginHorizontal: 50
   },
-  homeScreenFilename: {
+  ListScreenFilename: {
     marginVertical: 7
   },
   codeHighlightText: {
