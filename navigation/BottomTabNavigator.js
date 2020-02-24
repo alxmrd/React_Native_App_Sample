@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TabBarIcon from "../components/TabBarIcon";
-import ListScreen from "../screens/ListScreen";
+import ListScreenContainer from "../screens/ListScreen/ListScreenContainer";
 import MapsScreen from "../screens/MapScreen";
 
 const BottomTab = createBottomTabNavigator();
@@ -17,7 +17,7 @@ export default function BottomTabNavigator({ navigation, route }) {
     <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
       <BottomTab.Screen
         name="List"
-        component={ListScreen}
+        component={ListScreenContainer}
         options={{
           title: "List",
           tabBarIcon: ({ focused }) => (
