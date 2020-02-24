@@ -31,12 +31,16 @@
     "react-native-safe-area-context": "0.6.0",
     "react-native-screens": "2.0.0-alpha.12",
     "react-native-web": "~0.11.7",
-    "redux": "^4.0.5"
+    "react-navigation-transitions": "^1.0.12",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "babel-preset-expo": "~8.0.0",
-    "jest-expo": "~36.0.1",
+   "jest-expo": "~36.0.1",
+    "prettier": "1.19.1",
     "redux-devtools": "^3.5.0"
   },
   "private": true
