@@ -1,30 +1,39 @@
 import * as React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { connect } from "react-redux";
+import { fetchPOIs } from "../store/actions/actions";
 
-export default function HomeScreen({ navigation }) {
-  return (
-    <View style={styles.container}>
-      <LinearGradient
-        colors={["#416591", "#416591", "#145D75", "#190C41", "#001126"]}
-        style={{
-          width: "100%",
-          height: "100%",
-          alignItems: "center",
-          justifyContent: "center",
-          borderRadius: 5
-        }}
-      >
-        <Text style={styles.helloText}>Hello!</Text>
-        <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={() => navigation.navigate("Root")}
+class HomeScreen extends React.Component {
+  componentDidMount() {
+    this.props.onfetchPOIs();
+  }
+
+  render() {
+    const { navigation } = this.props;
+    return (
+      <View style={styles.container}>
+        <LinearGradient
+          colors={["#416591", "#416591", "#145D75", "#190C41", "#001126"]}
+          style={{
+            width: "100%",
+            height: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+            borderRadius: 5
+          }}
         >
-          <Text style={styles.navigateText}>NAVIGATE</Text>
-        </TouchableOpacity>
-      </LinearGradient>
-    </View>
-  );
+          <Text style={styles.helloText}>Hello!</Text>
+          <TouchableOpacity
+            style={styles.loginBtn}
+            onPress={() => navigation.navigate("Root")}
+          >
+            <Text style={styles.navigateText}>NAVIGATE</Text>
+          </TouchableOpacity>
+        </LinearGradient>
+      </View>
+    );
+  }
 }
 
 HomeScreen.navigationOptions = {
@@ -62,3 +71,11 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start"
   }
 });
+
+const mapStateToProps = state => ({
+  pois: state.pois
+});
+const mapDispatchToProps = dispatch => ({
+  onfetchPOIs: () => dispatch(fetchPOIs())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

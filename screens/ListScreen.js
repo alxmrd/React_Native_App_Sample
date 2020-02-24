@@ -5,10 +5,6 @@ import { fetchPOIs } from "../store/actions/actions";
 import { ListItem } from "react-native-elements";
 
 class ListScreen extends React.Component {
-  componentDidMount() {
-    this.props.onfetchPOIs();
-  }
-
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -52,7 +48,5 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   pois: state.pois
 });
-const mapDispatchToProps = dispatch => ({
-  onfetchPOIs: () => dispatch(fetchPOIs())
-});
-export default connect(mapStateToProps, mapDispatchToProps)(ListScreen);
+
+export default connect(mapStateToProps)(ListScreen);
