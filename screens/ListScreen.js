@@ -24,7 +24,7 @@ class ListScreen extends React.Component {
               key={i}
               title={item.address}
               // leftIcon={{ name: item.icon }}
-              // bottomDivider
+              bottomDivider
               // chevron
             />
           ))
