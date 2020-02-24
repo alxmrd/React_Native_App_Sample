@@ -19,9 +19,9 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="List"
         component={ListScreen}
         options={{
-          title: "Get Started",
+          title: "List",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} name="md-code-working" />
+            <TabBarIcon focused={focused} name="md-list" />
           )
         }}
       />
@@ -29,9 +29,9 @@ export default function BottomTabNavigator({ navigation, route }) {
         name="Maps"
         component={MapsScreen}
         options={{
-          title: "Resources",
+          title: "Map",
           tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} name="md-book" />
+            <TabBarIcon focused={focused} name="md-map" />
           )
         }}
       />
@@ -45,8 +45,8 @@ function getHeaderTitle(route) {
 
   switch (routeName) {
     case "List":
-      return "How to get started";
+      return "List";
     case "Maps":
-      return "Maps to learn more";
+      return "Map";
   }
 }

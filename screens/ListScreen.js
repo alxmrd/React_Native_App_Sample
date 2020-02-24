@@ -40,8 +40,7 @@ ListScreen.navigationOptions = {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingTop: 22
+    flex: 1
   },
   item: {
     padding: 10,
