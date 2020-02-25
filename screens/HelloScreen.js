@@ -3,11 +3,25 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { connect } from "react-redux";
 import { fetchPOIs } from "../store/actions/actions";
+import { permissionAnswerIsAllow } from "../store/actions/actions";
+import { permissionAnswerIsDeny } from "../store/actions/actions";
+import * as Permissions from "expo-permissions";
 
 class HomeScreen extends React.Component {
   componentDidMount() {
     this.props.onfetchPOIs();
+
+    this._getLocationAsync();
   }
+
+  _getLocationAsync = async () => {
+    let { status } = await Permissions.askAsync(Permissions.LOCATION);
+    if (status !== "granted") {
+      this.props.onPermissionsAnswerIsDeny();
+    }
+
+    this.props.onPermissionsAnswerIsAllow();
+  };
 
   render() {
     const { navigation } = this.props;
@@ -58,13 +72,13 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   navigateText: {
-    fontFamily: "Helvetica Neue",
+    fontFamily: "open-sans-bold",
     fontWeight: "bold",
     color: "white",
     fontSize: 17
   },
   helloText: {
-    fontFamily: "Helvetica Neue",
+    fontFamily: "open-sans-bold",
     fontWeight: "bold",
     color: "white",
     fontSize: 40,
@@ -76,6 +90,8 @@ const mapStateToProps = state => ({
   pois: state.pois
 });
 const mapDispatchToProps = dispatch => ({
-  onfetchPOIs: () => dispatch(fetchPOIs())
+  onfetchPOIs: () => dispatch(fetchPOIs()),
+  onPermissionsAnswerIsAllow: () => permissionAnswerIsAllow(dispatch),
+  onPermissionsAnswerIsDeny: () => permissionAnswerIsDeny(dispatch)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);

@@ -1,4 +1,6 @@
 import { FETCH_POIS } from "../actions/types";
+import { PERMISSIONS_ANSWER_ISALLOW } from "../actions/types";
+import { PERMISSIONS_ANSWER_ISDENY } from "../actions/types";
 
 export const fetchPOIs = () => {
   return async dispatch => {
@@ -17,10 +19,22 @@ export const fetchPOIs = () => {
       )
       .catch(error => {
         alert("Error", error);
-        console.log(error);
       });
-    //   let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    //   if (status !== "granted") {
-    //     alert = "H Τοποθεσία ειναι απενεργοποιημένη, μεταβείτε στις ρυθμίσεις!";
   };
+};
+
+export const permissionAnswerIsAllow = dispatch => {
+  let answer;
+  dispatch({
+    type: PERMISSIONS_ANSWER_ISALLOW,
+    payload: answer
+  });
+};
+
+export const permissionAnswerIsDeny = dispatch => {
+  let answer;
+  dispatch({
+    type: PERMISSIONS_ANSWER_ISDENY,
+    payload: answer
+  });
 };

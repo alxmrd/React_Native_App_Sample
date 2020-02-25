@@ -4,7 +4,7 @@ import { ListItem } from "react-native-elements";
 
 function ListScreen(props) {
   const { pois } = props;
-  console.log(pois);
+
   return (
     <ScrollView style={styles.container}>
       {!pois ? (
