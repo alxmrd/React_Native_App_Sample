@@ -23,13 +23,21 @@ class MapScreen extends React.Component {
             title={item.address}
           />
         ))}
+        <Marker
+          coordinate={{
+            latitude: this.props.currentLocation.latitude,
+            longitude: this.props.currentLocation.longitude
+          }}
+          title={"You are here!"}
+        />
       </MapView>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  pois: state.pois
+  pois: state.pois,
+  currentLocation: state.currentLocation
 });
 
 export default connect(mapStateToProps, null)(MapScreen);

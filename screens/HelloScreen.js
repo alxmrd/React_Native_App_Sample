@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { fetchPOIs } from "../store/actions/actions";
 import { permissionAnswerIsAllow } from "../store/actions/actions";
 import { permissionAnswerIsDeny } from "../store/actions/actions";
-
 import * as Permissions from "expo-permissions";
 
 class HomeScreen extends React.Component {

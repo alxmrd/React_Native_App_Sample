@@ -2,7 +2,6 @@ import { FETCH_POIS } from "../actions/types";
 import { PERMISSIONS_ANSWER_ISALLOW } from "../actions/types";
 import { PERMISSIONS_ANSWER_ISDENY } from "../actions/types";
 import { CURRENT_LOCATION } from "../actions/types";
-
 import * as Location from "expo-location";
 
 export const fetchPOIs = () => {
@@ -36,6 +35,7 @@ export const permissionAnswerIsAllow = () => {
 
     let location = await Location.getCurrentPositionAsync({});
     let currentLocation = location.coords;
+
     dispatch({
       type: CURRENT_LOCATION,
       payload: currentLocation

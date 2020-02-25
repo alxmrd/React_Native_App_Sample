@@ -19,23 +19,19 @@ export default function App(props) {
   const containerRef = React.useRef();
   const { getInitialState } = useLinking(containerRef);
 
-  // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
     async function loadResourcesAndDataAsync() {
       try {
         SplashScreen.preventAutoHide();
 
-        // Load our initial navigation state
         setInitialNavigationState(await getInitialState());
 
-        // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
           "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf"),
           "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf")
         });
       } catch (e) {
-        // We might want to provide this error information to an error reporting service
         console.warn(e);
       } finally {
         setLoadingComplete(true);
