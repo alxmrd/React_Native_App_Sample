@@ -4,14 +4,11 @@ import { ListItem } from "react-native-elements";
 
 function ListScreen(props) {
   const { pois } = props;
+  console.log(pois);
   return (
     <ScrollView style={styles.container}>
       {!pois ? (
-        <ActivityIndicator
-          style={((alignItems = "center"), (justifyContent = "center"))}
-          size="large"
-          color="#0000ff"
-        />
+        <ActivityIndicator size="large" color="#0000ff" />
       ) : (
         pois.map((item, i) => (
           <ListItem key={i} title={item.address} bottomDivider />

@@ -2,7 +2,6 @@ import * as React from "react";
 import MapView from "react-native-map-clustering";
 import { Marker } from "react-native-maps";
 import { connect } from "react-redux";
-import { fetchPOIs } from "../store/actions/actions";
 
 class MapScreen extends React.Component {
   render() {
