@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { fetchPOIs } from "../store/actions/actions";
 import { permissionAnswerIsAllow } from "../store/actions/actions";
 import { permissionAnswerIsDeny } from "../store/actions/actions";
+
 import * as Permissions from "expo-permissions";
 
 class HomeScreen extends React.Component {
@@ -91,7 +92,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   onfetchPOIs: () => dispatch(fetchPOIs()),
-  onPermissionsAnswerIsAllow: () => permissionAnswerIsAllow(dispatch),
+  onPermissionsAnswerIsAllow: () => dispatch(permissionAnswerIsAllow()),
   onPermissionsAnswerIsDeny: () => permissionAnswerIsDeny(dispatch)
 });
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
