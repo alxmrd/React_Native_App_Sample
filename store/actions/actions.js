@@ -27,26 +27,22 @@ export const fetchPOIs = () => {
 
 export const permissionAnswerIsAllow = () => {
   return async dispatch => {
-    let answer;
     dispatch({
-      type: PERMISSIONS_ANSWER_ISALLOW,
-      payload: answer
+      type: PERMISSIONS_ANSWER_ISALLOW
     });
 
-    let location = await Location.getCurrentPositionAsync({});
-    let currentLocation = location.coords;
+    const location = await Location.getCurrentPositionAsync({});
+    const { coords } = location;
 
     dispatch({
       type: CURRENT_LOCATION,
-      payload: currentLocation
+      payload: coords
     });
   };
 };
 
 export const permissionAnswerIsDeny = dispatch => {
-  let answer;
   dispatch({
-    type: PERMISSIONS_ANSWER_ISDENY,
-    payload: answer
+    type: PERMISSIONS_ANSWER_ISDENY
   });
 };
