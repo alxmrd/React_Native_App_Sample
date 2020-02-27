@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import ListScreen from "./ListScreen";
 import { orderByDistance } from "geolib";
+import { getDistance } from "geolib";
 
 export function sortPoisByAddress(pois) {
   return pois.sort(function(a, b) {
@@ -37,7 +38,8 @@ export function sortPoisByLocation(location, pois) {
 const mapStateToProps = ({ permissionAnswer, currentLocation, pois }) => ({
   pois: permissionAnswer
     ? sortPoisByLocation(currentLocation, pois)
-    : sortPoisByAddress(pois)
+    : sortPoisByAddress(pois),
+  location: currentLocation
 });
 
 export default connect(mapStateToProps)(ListScreen);
