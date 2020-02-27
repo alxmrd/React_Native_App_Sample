@@ -23,13 +23,6 @@ class MapScreen extends React.Component {
             title={item.address}
           />
         ))}
-        <Marker
-          coordinate={{
-            latitude: this.props.currentLocation.latitude,
-            longitude: this.props.currentLocation.longitude
-          }}
-          title={"You are here!"}
-        />
       </MapView>
     );
   }
