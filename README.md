@@ -9,7 +9,7 @@ This application created with Expo and tested with Expo Emulator on iOS and Andr
 
 
 ### Installing
-Download this repository, then go to this direction's folder by the terminal and then run :  
+Download this repository, then go to directorys's folder by the terminal and then run :  
 ```
 $ npm start
 ```
